@@ -7,7 +7,7 @@ interface Props {
 class Greeting extends Component<Props> {
 
     componentDidMount() {
-        return "componentDidMount called";
+        console.log("Component mounted.");
     }
 
     constructor(props: Props) {
@@ -15,26 +15,14 @@ class Greeting extends Component<Props> {
     }
 
     render() {
-        return (
-            <>
-                <h1 style={{
+        return <h1 style={{
                     fontFamily: "'Roboto', sans-serif",
                     fontSize: "50px",
                     fontWeight: "bold",
                     padding: "0 10px",
                     color: "red",
                 }}>Hello {this.props.name}</h1>
-
-                <p style={{
-                    fontFamily: "'Roboto', sans-serif",
-                    fontSize: "40px",
-                    fontWeight: "bold",
-                    padding: "0 20px",
-
-                }}>{this.componentDidMount()}</p>
-            </>
-        )
-            }
+    }
 }
 
 export default Greeting;
