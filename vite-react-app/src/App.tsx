@@ -8,7 +8,7 @@ function App() {
         skills: ["ReactJS", "Typescript", "Vite"],
         avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
     };
-    
+
 //        inline style
     const cardStyle = {
         border: "2px solid #646cff",
