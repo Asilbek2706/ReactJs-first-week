@@ -15,10 +15,16 @@ jobs:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           format: markdown
           message: |
-            🚀 **New Commit**
+            🚀 **Project Update**
 
-            👤 **Author:** `${{ github.actor }}`
+            📂 **Repo:** `${{ github.repository }}`
             🌿 **Branch:** `${{ github.ref_name }}`
-            📝 **Message:** _${{ github.event.head_commit.message }}_
+            👤 **Author:** `${{ github.actor }}`
 
-            🔗 [View Changes](${{ github.event.head_commit.url }})
+            💬 **Message:**
+            > _${{ github.event.head_commit.message }}_
+
+            ✅ **Status:** Successfully Deployed
+            ⏰ **Time:** `${{ github.event.head_commit.timestamp }}`
+
+            🔗 [Commit Details](${{ github.event.head_commit.url }})
