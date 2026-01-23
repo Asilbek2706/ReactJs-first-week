@@ -2,7 +2,7 @@ name: Notify Telegram 🚀
 
 on:
   push:
-    branches: [ main ] # Faqat main branchga push bo'lganda ishlashi uchun (ixtiyoriy)
+    branches: [ main ]
 
 jobs:
   notify:
@@ -13,18 +13,12 @@ jobs:
         with:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
-          format: html
+          format: markdown
           message: |
-            *🔔 YANGLANISH XABARI*
-            ------------------------------------
-            *📁 Loyiha:* `${{ github.repository }}`
-            *🌿 Branch:* `${{ github.ref_name }}`
-            *👤 Muallif:* `${{ github.actor }}`
-            
-            *📝 Xabar:*
-            _${{ github.event.head_commit.message }}_
-            
-            *📊 Holat:* ✅ Muvaffaqiyatli yuklandi
-            *🔗 Havola:* [O'zgarishlarni ko'rish](${{ github.event.head_commit.url }})
-            ------------------------------------
-            *⏰ Vaqt:* ${{ github.event.head_commit.timestamp }}
+            🚀 **New Commit**
+
+            👤 **Author:** `${{ github.actor }}`
+            🌿 **Branch:** `${{ github.ref_name }}`
+            📝 **Message:** _${{ github.event.head_commit.message }}_
+
+            🔗 [View Changes](${{ github.event.head_commit.url }})
