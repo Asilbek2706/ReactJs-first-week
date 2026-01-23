@@ -1,6 +1,8 @@
 name: Notify Telegram 🚀
 
-on: [push]
+on:
+  push:
+    branches: [ main ] # Faqat main branchga push bo'lganda ishlashi uchun (ixtiyoriy)
 
 jobs:
   notify:
@@ -16,7 +18,7 @@ jobs:
             *🔔 YANGLANISH XABARI*
             ------------------------------------
             *📁 Loyiha:* `${{ github.repository }}`
-            *🌿 Branch:* `#${{ github.ref_name }}`
+            *🌿 Branch:* `${{ github.ref_name }}`
             *👤 Muallif:* `${{ github.actor }}`
             
             *📝 Xabar:*
