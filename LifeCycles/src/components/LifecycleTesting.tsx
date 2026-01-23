@@ -45,7 +45,7 @@ const LifecycleTesting = () => {
         }
     }, []);
 
-    const [text, setText] = useState("");
+    const [text] = useState("");
 
     useEffect(() => {
         if (text.length > 0) {
