@@ -19,6 +19,12 @@ import { useEffect, useState } from "react";
         console.log("mount yoki count\'da o\'zgarish yuz berdi");
     }, [count]);
 
+     useEffect(() => {
+        if (searchTerm) {
+            searchFromDatabase(searchTerm);
+        }
+     }, [searchTerm]);
+
     const handleIncrement= () => {
         setCount(count => count + 1);
     }
@@ -43,10 +49,41 @@ const LifecycleTesting = () => {
         setCount(count => count + 1);
     }
 
+    // useEffect(() => {
+    //     const chatConnection = connectToChat();
+    //
+    //     return () => {
+    //         chatConnection.disconnect();
+    //         console.log("Chat ulanishi uzildi.");
+    //     };
+    // }, []);
+
     return <div>
         <button onClick={handleIncrement}>Increment</button>
         <h1>Count: {count}</h1>
     </div>
 }
 
+const WindowWidthTracker = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+
+
+        // Mounting
+        window.addEventListener('resize', handleResize)
+        console.log("Oynani kuzatish boshlandi!")
+
+        //Unmounting
+        return () => {
+            window.removeEventListener('resize', handleResize)
+            console.log("Oynani kuzatish to\'xtatildi!")
+        }
+    }, []);
+
+    return <div>Oyna kengligi: {width}px</div>
+}
+
+export { WindowWidthTracker };
 export default LifecycleTesting

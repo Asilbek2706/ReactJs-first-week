@@ -1,5 +1,5 @@
 import './App.css'
-import LifecycleTesting  from "./components/LifecycleTesting.tsx";
+import LifecycleTesting, {WindowWidthTracker} from "./components/LifecycleTesting.tsx";
 import {useState} from "react";
 
 function App() {
@@ -11,7 +11,13 @@ function App() {
     <div>
         <button onClick={handleToggle}>Toggle Component</button>
         {showComponent && <LifecycleTesting />}
+
+        <hr/>
+
+        <WindowWidthTracker/>
     </div>
+
+
   )
 }
 
