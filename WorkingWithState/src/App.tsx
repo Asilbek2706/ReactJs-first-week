@@ -1,5 +1,6 @@
 import Counter from "./components/Counter.tsx"
 import InputMirror  from "./components/InputMirror.tsx";
+import TodoList from "./components/TodoList.tsx";
 import './App.css'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
         <>
             <Counter />
             <InputMirror />
+            <TodoList />
         </>
         )
 }
